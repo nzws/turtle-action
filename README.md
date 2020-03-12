@@ -22,6 +22,8 @@ In workflow:
     build_os: 'android'
     expo_sdk_version: '36.0.0' # your SDK version
   env:
+    EXPO_USERNAME: ${{ secrets.EXPO_USERNAME }}
+    EXPO_PASSWORD: ${{ secrets.EXPO_PASSWORD }}
     EXPO_ANDROID_KEYSTORE_BASE64: ${{ secrets.EXPO_ANDROID_KEYSTORE_BASE64 }}
     EXPO_ANDROID_KEYSTORE_ALIAS: ${{ secrets.EXPO_ANDROID_KEYSTORE_ALIAS }}
     EXPO_ANDROID_KEYSTORE_PASSWORD: ${{ secrets.EXPO_ANDROID_KEYSTORE_PASSWORD }}
@@ -36,6 +38,8 @@ In workflow:
     build_os: 'ios'
     expo_sdk_version: '36.0.0' # your SDK version
   env:
+    EXPO_USERNAME: ${{ secrets.EXPO_USERNAME }}
+    EXPO_PASSWORD: ${{ secrets.EXPO_PASSWORD }}
     EXPO_APPLE_TEAM_ID: ${{ secrets.EXPO_APPLE_TEAM_ID }}
     EXPO_IOS_DIST_P12_BASE64: ${{ secrets.EXPO_IOS_DIST_P12_BASE64 }}
     EXPO_IOS_DIST_P12_PASSWORD: ${{ secrets.EXPO_IOS_DIST_P12_PASSWORD }}
