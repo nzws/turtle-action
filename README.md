@@ -7,17 +7,21 @@
 
 > 🐢 Turtle CLI with GitHub Actions for building expo-project
 
+**This action is currently in beta.**
+
 - [ ] Android
 - [ ] iOS
 
 # Usage
+
+See `action.yml` for details of arguments.
 
 In workflow:
 
 ## Android
 
 ```yaml
-- uses: nzws/turtle-action@v1
+- uses: nzws/turtle-action@master
   with:
     build_os: 'android'
     expo_sdk_version: '36.0.0' # your SDK version
@@ -33,7 +37,7 @@ In workflow:
 ## iOS
 
 ```yaml
-- uses: nzws/turtle-action@v1
+- uses: nzws/turtle-action@master
   with:
     build_os: 'ios'
     expo_sdk_version: '36.0.0' # your SDK version

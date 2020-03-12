@@ -2,7 +2,7 @@ import { writeFile } from 'fs';
 
 const base64ToBin = (base64, filePath) =>
   new Promise((resolve, reject) => {
-    const buffer = new Buffer(base64, 'base64');
+    const buffer = Buffer.from(base64, 'base64');
 
     writeFile(filePath, buffer, 'binary', err => {
       if (err) {

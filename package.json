@@ -18,13 +18,11 @@
     "format:prettier": "pretty-quick --ignore-path .ignore",
     "format:js": "eslint --cache --fix --ignore-path .ignore \"**/*.js\"",
     "format": "npm-run-all format:* -s",
-    "build:js-step1": "cross-env NODE_ENV=production babel src -d babel-build --extensions \".js\"",
-    "build:js-step2": "cross-env NODE_ENV=production ncc build babel-build/index.js --out build --minify",
+    "build:js": "cross-env NODE_ENV=production ncc build src/index.js --out build --minify",
     "build": "npm-run-all build:* -s",
     "start": "yarn build:js && node sec-example"
   },
   "dependencies": {
-    "@actions/artifact": "^0.1.0",
     "@actions/core": "^1.2.3",
     "@actions/exec": "^1.0.3",
     "add-pkg": "^1.0.1"

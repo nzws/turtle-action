@@ -2,15 +2,7 @@
 # yarn lockfile v1
 
 
-"@actions/artifact@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@actions/artifact/-/artifact-0.1.0.tgz#ba13f47105b2729e5563c4963eb31a4e4c01cb87"
-  integrity sha512-UOGv9FXfNuzs7v9JzX++h2j2/0lqhKp2yso0LwbaNsUTPyemLr5v4BUZj5R7d292jQvpuhh/+Psgwepc3g/DDg==
-  dependencies:
-    "@actions/core" "^1.2.1"
-    "@actions/http-client" "^1.0.6"
-
-"@actions/core@^1.2.1", "@actions/core@^1.2.3":
+"@actions/core@^1.2.3":
   version "1.2.3"
   resolved "https://registry.yarnpkg.com/@actions/core/-/core-1.2.3.tgz#e844b4fa0820e206075445079130868f95bfca95"
   integrity sha512-Wp4xnyokakM45Uuj4WLUxdsa8fJjKVl1fDTsPbTEcTcuu0Nb26IPQbOtjmnfaCPGcaoPOOqId8H9NapZ8gii4w==
@@ -21,13 +13,6 @@
   integrity sha512-TogJGnueOmM7ntCi0ASTUj4LapRRtDfj57Ja4IhPmg2fls28uVOPbAn8N+JifaOumN2UG3oEO/Ixek2A4NcYSA==
   dependencies:
     "@actions/io" "^1.0.1"
-
-"@actions/http-client@^1.0.6":
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/@actions/http-client/-/http-client-1.0.6.tgz#6f9267ca50e1d74d8581f4a894a943cd4c97b49a"
-  integrity sha512-LGmio4w98UyGX33b/W6V6Nx/sQHRXZ859YlMkn36wPsXPB82u8xTVlA/Dq2DXrm6lEq9RVmisRJa1c+HETAIJA==
-  dependencies:
-    tunnel "0.0.6"
 
 "@actions/io@^1.0.1":
   version "1.0.2"
@@ -3002,11 +2987,6 @@ tslib@^1.9.0:
   version "1.11.1"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.11.1.tgz#eb15d128827fbee2841549e171f45ed338ac7e35"
   integrity sha512-aZW88SY8kQbU7gpV19lN24LtXh/yD4ZZg6qieAJDDg+YBsJcSmLGK9QpnUjAKVG/xefmvJGd1WUmfpT/g6AJGA==
-
-tunnel@0.0.6:
-  version "0.0.6"
-  resolved "https://registry.yarnpkg.com/tunnel/-/tunnel-0.0.6.tgz#72f1314b34a5b192db012324df2cc587ca47f92c"
-  integrity sha512-1h/Lnq9yajKY2PEbBadPXj3VxsDDu844OnaAo52UVmIzIvwwtBPIuNvkjuzBlTWpfJyUbG3ez0KSBibQkj4ojg==
 
 type-check@~0.3.2:
   version "0.3.2"
