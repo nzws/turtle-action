@@ -1,0 +1,19 @@
+name: 'turtle-action'
+author: 'nzws <i+action@nzws.me>'
+description: 'Turtle CLI with GitHub Actions for building expo-project'
+inputs:
+  build_os:
+    description: 'android or ios'
+    required: true
+  expo_sdk_version:
+    description: 'version of expo sdk (ex: 36.0.0)'
+    required: true
+  turtle_cli_version:
+    description: 'version of turtle cli'
+    required: false
+  working_dir:
+    description: 'working directory (for example, specify a directory for monorepo)'
+    required: false
+runs:
+  using: 'node12'
+  main: 'build/index.js'

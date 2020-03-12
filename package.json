@@ -1,0 +1,47 @@
+{
+  "name": "@nzws/turtle-action",
+  "version": "1.0.0",
+  "author": "nzws <i@nzws.me>",
+  "main": "./build/index.js",
+  "license": "MIT",
+  "repository": "https://github.com/nzws/turtle-actions.git",
+  "homepage": "https://github.com/nzws/turtle-actions",
+  "private": true,
+  "engines": {
+    "node": "12.x || 13.x"
+  },
+  "scripts": {
+    "lint:prettier": "prettier --check --ignore-path .ignore \"**/*.{js,md,json,yml}\"",
+    "lint:eslint": "eslint --cache --ignore-path .ignore \"**/*.js\"",
+    "lint": "npm-run-all lint:* -s",
+    "format-all": "prettier --write --ignore-path .ignore \"**/*.{js,md,json,yml}\"",
+    "format:prettier": "pretty-quick --ignore-path .ignore",
+    "format:js": "eslint --cache --fix --ignore-path .ignore \"**/*.js\"",
+    "format": "npm-run-all format:* -s",
+    "build:js-step1": "cross-env NODE_ENV=production babel src -d babel-build --extensions \".js\"",
+    "build:js-step2": "cross-env NODE_ENV=production ncc build babel-build/index.js --out build --minify",
+    "build": "npm-run-all build:* -s",
+    "start": "yarn build:js && node sec-example"
+  },
+  "dependencies": {
+    "@actions/artifact": "^0.1.0",
+    "@actions/core": "^1.2.3",
+    "@actions/exec": "^1.0.3",
+    "add-pkg": "^1.0.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.7",
+    "@babel/preset-env": "^7.8.7",
+    "@yuzulabo/eslint-config": "^1.0.1",
+    "@yuzulabo/prettier-config": "~1",
+    "@zeit/ncc": "^0.21.1",
+    "babel-eslint": "^10.1.0",
+    "cross-env": "^7.0.2",
+    "eslint": "~6",
+    "npm-run-all": "~4",
+    "prettier": "~1",
+    "pretty-quick": "^2.0.1"
+  },
+  "prettier": "@yuzulabo/prettier-config"
+}
