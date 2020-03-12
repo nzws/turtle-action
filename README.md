@@ -9,7 +9,7 @@
 
 **This action is currently in beta.**
 
-- [ ] Android
+- [x] Android
 - [ ] iOS
 
 # Usage
@@ -21,7 +21,9 @@ In workflow:
 ## Android
 
 ```yaml
-- uses: nzws/turtle-action@master
+- name: Build
+  id: expo-build
+  uses: nzws/turtle-action@master
   with:
     build_os: 'android'
     expo_sdk_version: '36.0.0' # your SDK version
@@ -32,12 +34,19 @@ In workflow:
     EXPO_ANDROID_KEYSTORE_ALIAS: ${{ secrets.EXPO_ANDROID_KEYSTORE_ALIAS }}
     EXPO_ANDROID_KEYSTORE_PASSWORD: ${{ secrets.EXPO_ANDROID_KEYSTORE_PASSWORD }}
     EXPO_ANDROID_KEY_PASSWORD: ${{ secrets.EXPO_ANDROID_KEY_PASSWORD }}
+- name: Upload asset
+  uses: actions/upload-artifact@v1
+  with:
+    name: asset
+    path: ${{ steps.expo-build.outputs.asset_path }}
 ```
 
-## iOS
+## iOS (wip)
 
 ```yaml
-- uses: nzws/turtle-action@master
+- name: Build
+  id: expo-build
+  uses: nzws/turtle-action@master
   with:
     build_os: 'ios'
     expo_sdk_version: '36.0.0' # your SDK version
@@ -48,6 +57,11 @@ In workflow:
     EXPO_IOS_DIST_P12_BASE64: ${{ secrets.EXPO_IOS_DIST_P12_BASE64 }}
     EXPO_IOS_DIST_P12_PASSWORD: ${{ secrets.EXPO_IOS_DIST_P12_PASSWORD }}
     EXPO_IOS_PROVISIONING_PROFILE_BASE64: ${{ secrets.EXPO_IOS_PROVISIONING_PROFILE_BASE64 }}
+- name: Upload asset
+  uses: actions/upload-artifact@v1
+  with:
+    name: asset
+    path: ${{ steps.expo-build.outputs.asset_path }}
 ```
 
 # License
