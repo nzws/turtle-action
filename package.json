@@ -1,6 +1,6 @@
 {
   "name": "@nzws/turtle-action",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "author": "nzws <i@nzws.me>",
   "main": "./build/index.js",
   "license": "MIT",

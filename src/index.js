@@ -9,20 +9,20 @@ import checkEnv from './utils/check-env';
 import base64ToBin from './utils/base642bin';
 
 const envs = {
-  expo_username: 'global',
-  expo_password: 'global',
+  EXPO_USERNAME: 'global',
+  EXPO_PASSWORD: 'global',
 
   // expo fetch:android:keystore
-  android_ks_base64: 'android',
-  android_ks_alias: 'android',
-  android_ks_password: 'android',
-  android_key_password: 'android',
+  EXPO_ANDROID_KEYSTORE_BASE64: 'android',
+  EXPO_ANDROID_KEYSTORE_ALIAS: 'android',
+  EXPO_ANDROID_KEYSTORE_PASSWORD: 'android',
+  EXPO_ANDROID_KEY_PASSWORD: 'android',
 
   // expo fetch:ios:certs
-  ios_apple_team_id: 'ios',
-  ios_p12_base64: 'ios',
-  ios_p12_password: 'ios',
-  ios_provisioning_profile_base64: 'ios'
+  EXPO_APPLE_TEAM_ID: 'ios',
+  EXPO_IOS_DIST_P12_BASE64: 'ios',
+  EXPO_IOS_DIST_P12_PASSWORD: 'ios',
+  EXPO_IOS_PROVISIONING_PROFILE_BASE64: 'ios'
 };
 
 const env = Object.keys(envs).map(key => process.env[key]);
@@ -39,7 +39,7 @@ const { uploadArtifact } = artifact.create();
     const manager = managers[await selectManager()];
     const command = manager.base;
 
-    await exec(manager.add.global.replace('{packages}', 'expo-cli'));
+    await exec(manager.add.global.replace('{packages}', 'expo-cli cross-env'));
     const turtleVer = core.getInput('turtle_cli_version');
     await exec(
       manager.add.global.replace(
@@ -49,7 +49,7 @@ const { uploadArtifact } = artifact.create();
     );
 
     await exec(
-      `expo login -u ${env.expo_username} -p ${env.expo_password} --non-interactive`
+      `expo login -u ${env.EXPO_USERNAME} -p ${env.EXPO_PASSWORD} --non-interactive`
     );
     await exec(`${command} install --frozen-lockfile`);
     await exec('expo publish');
@@ -62,25 +62,27 @@ const { uploadArtifact } = artifact.create();
       checkEnv(envs, 'android');
       file += '.apk';
 
-      await base64ToBin(env.android_ks_base64, 'expo-project.jks');
+      await base64ToBin(env.EXPO_ANDROID_KEYSTORE_BASE64, 'expo-project.jks');
 
       await exec(`turtle setup:android --sdk-version ${sdkVersion}`);
       await exec(
-        `turtle build:android --keystore-path ./expo-project.jks --keystore-alias ${env.android_ks_alias} --type apk -o ${file}`
+        `cross-env EXPO_ANDROID_KEYSTORE_PASSWORD=${env.EXPO_ANDROID_KEYSTORE_PASSWORD} EXPO_ANDROID_KEY_PASSWORD=${env.EXPO_ANDROID_KEY_PASSWORD} ` +
+          `turtle build:android --keystore-path ./expo-project.jks --keystore-alias ${env.EXPO_ANDROID_KEYSTORE_ALIAS} --type apk -o ${file}`
       );
     } else if (os === 'ios') {
       checkEnv(envs, 'ios');
       file += '.ipa';
 
-      await base64ToBin(env.ios_p12_base64, 'expo-project_dist.p12');
+      await base64ToBin(env.EXPO_IOS_DIST_P12_BASE64, 'expo-project_dist.p12');
       await base64ToBin(
-        env.ios_provisioning_profile_base64,
+        env.EXPO_IOS_PROVISIONING_PROFILE_BASE64,
         'expo-project.mobileprovision'
       );
 
       await exec(`turtle setup:ios --sdk-version ${sdkVersion}`);
       await exec(
-        `turtle build:ios --team-id ${env.ios_apple_team_id} --dist-p12-path ./expo-project_dist.p12 --provisioning-profile-path ./expo-project.mobileprovision -o ${file}`
+        `cross-env EXPO_IOS_DIST_P12_PASSWORD=${env.EXPO_IOS_DIST_P12_PASSWORD} ` +
+          `turtle build:ios --team-id ${env.EXPO_APPLE_TEAM_ID} --dist-p12-path ./expo-project_dist.p12 --provisioning-profile-path ./expo-project.mobileprovision -o ${file}`
       );
     } else {
       throw new Error('Unknown build os: ' + os);
