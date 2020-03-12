@@ -1,7 +1,7 @@
 import path from 'path';
 import core from '@actions/core';
 import { exec } from '@actions/exec';
-import artifact from '@actions/artifact';
+import * as artifact from '@actions/artifact';
 import selectManager from 'add-pkg/src/components/select-manager';
 import managers from 'add-pkg/src/managers';
 
