@@ -2,20 +2,20 @@ name: 'turtle-action'
 author: 'nzws <i+action@nzws.me>'
 description: 'Turtle CLI with GitHub Actions for building expo-project'
 inputs:
-  build_os:
+  build-os:
     description: 'android or ios'
     required: true
-  expo_sdk_version:
+  expo-sdk-version:
     description: 'version of expo sdk (ex: 36.0.0)'
     required: true
-  turtle_cli_version:
+  turtle-cli-version:
     description: 'version of turtle cli'
     required: false
-  working_dir:
+  working-dir:
     description: 'working directory (for example, specify a directory for monorepo)'
     required: false
 outputs:
-  asset_path:
+  asset-path:
     description: 'Path of the built asset'
 runs:
   using: 'node12'

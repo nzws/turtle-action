@@ -29,7 +29,7 @@ const envs = {
   try {
     checkEnv(envs);
 
-    const dir = core.getInput('working_dir');
+    const dir = core.getInput('working-dir');
     if (dir) {
       process.chdir(path.resolve(dir));
     }
@@ -40,7 +40,7 @@ const envs = {
     const yarnPath = await pkgExec('yarn global bin');
     core.addPath(yarnPath.trim());
 
-    const turtleVer = core.getInput('turtle_cli_version');
+    const turtleVer = core.getInput('turtle-cli-version');
     const packages = [
       turtleVer ? `turtle-cli@${turtleVer}` : 'turtle-cli',
       'expo-cli',
@@ -53,8 +53,8 @@ const envs = {
     );
     await exec(`${command} install --frozen-lockfile`);
 
-    const os = core.getInput('build_os', { required: true });
-    const sdkVersion = core.getInput('expo_sdk_version', { required: true });
+    const os = core.getInput('build-os', { required: true });
+    const sdkVersion = core.getInput('expo-sdk-version', { required: true });
 
     let file = `./expo-${Date.now()}`;
     if (os === 'android') {
@@ -93,7 +93,7 @@ const envs = {
       throw new Error('Unknown build os: ' + os);
     }
 
-    core.setOutput('asset_path', path.resolve(file));
+    core.setOutput('asset-path', path.resolve(file));
   } catch (e) {
     core.setFailed(e.message);
   }

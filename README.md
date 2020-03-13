@@ -25,8 +25,8 @@ In workflow:
   id: expo-build
   uses: nzws/turtle-action@master
   with:
-    build_os: 'android'
-    expo_sdk_version: '36.0.0' # your SDK version
+    build-os: 'android'
+    expo-sdk-version: '36.0.0' # your SDK version
   env:
     EXPO_USERNAME: ${{ secrets.EXPO_USERNAME }}
     EXPO_PASSWORD: ${{ secrets.EXPO_PASSWORD }}
@@ -38,7 +38,7 @@ In workflow:
   uses: actions/upload-artifact@v1
   with:
     name: asset
-    path: ${{ steps.expo-build.outputs.asset_path }}
+    path: ${{ steps.expo-build.outputs.asset-path }}
 ```
 
 ## iOS (wip)
@@ -48,8 +48,8 @@ In workflow:
   id: expo-build
   uses: nzws/turtle-action@master
   with:
-    build_os: 'ios'
-    expo_sdk_version: '36.0.0' # your SDK version
+    build-os: 'ios'
+    expo-sdk-version: '36.0.0' # your SDK version
   env:
     EXPO_USERNAME: ${{ secrets.EXPO_USERNAME }}
     EXPO_PASSWORD: ${{ secrets.EXPO_PASSWORD }}
@@ -61,7 +61,7 @@ In workflow:
   uses: actions/upload-artifact@v1
   with:
     name: asset
-    path: ${{ steps.expo-build.outputs.asset_path }}
+    path: ${{ steps.expo-build.outputs.asset-path }}
 ```
 
 # License
