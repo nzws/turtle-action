@@ -11,10 +11,10 @@
     "node": "12.x || 13.x"
   },
   "scripts": {
-    "lint:prettier": "prettier --check --ignore-path .ignore \"**/*.{js,md,json,yml}\"",
+    "lint:prettier": "prettier --check --ignore-path .ignore .",
     "lint:eslint": "eslint --cache --ignore-path .ignore \"**/*.js\"",
     "lint": "npm-run-all lint:* -s",
-    "format-all": "prettier --write --ignore-path .ignore \"**/*.{js,md,json,yml}\"",
+    "format-all": "prettier --write --ignore-path .ignore .",
     "format:prettier": "pretty-quick --ignore-path .ignore",
     "format:js": "eslint --cache --fix --ignore-path .ignore \"**/*.js\"",
     "format": "npm-run-all format:* -s",
@@ -29,17 +29,17 @@
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
-    "@babel/core": "^7.8.7",
-    "@babel/preset-env": "^7.8.7",
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "@nzws/prettier-config": "^1.0.0",
     "@yuzulabo/eslint-config": "^1.0.1",
-    "@yuzulabo/prettier-config": "~1",
     "@zeit/ncc": "^0.21.1",
     "babel-eslint": "^10.1.0",
     "cross-env": "^7.0.2",
     "eslint": "~6",
     "npm-run-all": "~4",
-    "prettier": "~1",
+    "prettier": "~2.0.1",
     "pretty-quick": "^2.0.1"
   },
-  "prettier": "@yuzulabo/prettier-config"
+  "prettier": "@nzws/prettier-config"
 }
