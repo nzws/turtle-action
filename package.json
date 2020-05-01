@@ -23,7 +23,7 @@
     "start": "yarn build:js && node sec-example"
   },
   "dependencies": {
-    "@actions/core": "^1.2.3",
+    "@actions/core": "^1.2.4",
     "@actions/exec": "^1.0.3",
     "add-pkg": "^1.0.1"
   },
