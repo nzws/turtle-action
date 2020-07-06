@@ -775,10 +775,10 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@nzws/prettier-config@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@nzws/prettier-config/-/prettier-config-1.0.0.tgz#dc339f987057de6bf2f16563394d9989d55401f1"
-  integrity sha512-pOFfWd0KXAPGlsdoCVvzXQQvXL8hduAfzBtxjPF/+rvmQUga9Dowh2aUOa/2HdBe55FN2zl/RRa49W3/7Cv+vA==
+"@nzws/prettier-config@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@nzws/prettier-config/-/prettier-config-1.0.1.tgz#3f48be1641e12c2198c485b9e79605213c3ea073"
+  integrity sha512-RG0PQb75i/l4aDaIt94qk7ZTnJ7MVSHM5Csr3Ral0MswQHE/UBiK/a/OpODDA1S+59SX4Z38b5vKnh+0RKNnbg==
 
 "@types/color-name@^1.1.1":
   version "1.1.1"
