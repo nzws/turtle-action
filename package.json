@@ -30,7 +30,7 @@
   "devDependencies": {
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.9.0",
-    "@babel/preset-env": "^7.9.0",
+    "@babel/preset-env": "^7.12.7",
     "@nzws/prettier-config": "^1.0.0",
     "@yuzulabo/eslint-config": "^1.0.1",
     "@zeit/ncc": "^0.22.0",
